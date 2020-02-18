@@ -31,15 +31,15 @@ public class Heuristic {
     public void CheckSum(int[] input, int finalSum){
         boolean firstLoop = false;
         boolean secondLoop = false;
-        int sum = 0;
         int a = 0;
         int b = 0;
         int newIndex;
         while(!firstLoop){
             newIndex = endIndex - a; // Setting up my new endIndex
-
+            secondLoop = false;
+            b = 0;
             while(!secondLoop){
-                if(sum == finalSum){
+                if(sum() == finalSum){
                     firstLoop = true;
                     secondLoop = true;
                     break;
@@ -49,7 +49,9 @@ public class Heuristic {
                         b++;
                     } else if((sum() + input[b]) < finalSum){
                         arrayList.add(newIndex - b);
+                        b++;
                     } else if(newIndex == b){
+                        arrayList.clear();
                         secondLoop = true;
                     }
                 }
