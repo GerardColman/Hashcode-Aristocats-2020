@@ -21,13 +21,42 @@ public class Heuristic {
 
     }
 
-    // This loops through the array till
-    public void CheckSum(int[] input){
-        boolean n = false;
-        while(n == false){
-            int a = endIndex; //
+    public int sum(){
+        int sum1 = 0;
+        for (Integer integer : arrayList) sum1 += integer;
+        return sum1;
+    }
 
+    // This loops through the array till the sum of the elements in the ArrayList is equal to
+    public void CheckSum(int[] input, int finalSum){
+        boolean firstLoop = false;
+        boolean secondLoop = false;
+        int sum = 0;
+        int a = 0;
+        int b = 0;
+        int newIndex;
+        while(!firstLoop){
+            newIndex = endIndex - a; // Setting up my new endIndex
+
+            while(!secondLoop){
+                if(sum == finalSum){
+                    firstLoop = true;
+                    secondLoop = true;
+                    break;
+                } else {
+                    if(arrayList.isEmpty()){
+                        arrayList.add(newIndex);
+                        b++;
+                    } else if((sum() + input[b]) < finalSum){
+                        arrayList.add(newIndex - b);
+                    } else if(newIndex == b){
+                        secondLoop = true;
+                    }
+                }
+            }
+            a++;
         }
+
     }
 
     /*
