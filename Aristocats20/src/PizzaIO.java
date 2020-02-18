@@ -5,16 +5,11 @@ import java.io.FileNotFoundException;
 public class PizzaIO {
 	
 	public int maximum = 0;
-	public int diffTypes = 0;
+	public int numOfTypes = 0;
 	
-	public static void main(String[] args) throws FileNotFoundException {
-
-		
-	 }
-	
-	public int[] Intialise() throws FileNotFoundException {
+	public int[] intialise(String path) throws FileNotFoundException {
 		String c = " ";
-		File f = new File("C:/Users/Kealan/Downloads/e_also_big.in");
+		File f = new File(path);
 		Scanner in = new Scanner(f);
 		
 			
@@ -24,14 +19,13 @@ public class PizzaIO {
 			
 			if(in.hasNextInt()) {
 				
-				diffTypes = in.nextInt();
+				numOfTypes = in.nextInt();
 			}
 			
-		int arr[] = new int[diffTypes];
+		int arr[] = new int[numOfTypes];
 		
-		for(int count = 0;count < diffTypes;count++) {
+		for(int count = 0; count < numOfTypes; count++) {
 			arr[count] = in.nextInt();
-			System.out.println(arr[count]);
 		}
 		
 		in.close();
