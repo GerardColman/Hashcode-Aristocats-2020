@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Heuristic {
+
     ArrayList<Integer> arrayList; // ArrayList of indexes to be returned
     public int endIndex;
 
