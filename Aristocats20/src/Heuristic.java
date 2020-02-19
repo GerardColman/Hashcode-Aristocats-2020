@@ -26,7 +26,9 @@ public class Heuristic {
 
     public int sum(){
         int sum1 = 0;
-        for (Integer integer : arrayList) sum1 += integer;
+        for(int i = 0; i < arrayList.size(); i++){
+            sum1 += arrayList.get(i);
+        }
         return sum1;
     }
 
@@ -39,23 +41,22 @@ public class Heuristic {
         int newIndex;
         while(!firstLoop){
             newIndex = endIndex - a; // Setting up my new endIndex
-            secondLoop = false;
+            secondLoop = false; // Resetting secondLoop flag
             b = 0;
             while(!secondLoop){
                 if(sum() == finalSum){
                     firstLoop = true;
-                    secondLoop = true;
                     break;
                 } else {
                     if (arrayList.isEmpty()) {
-                        arrayList.add(newIndex);
-                        b++;
+                        arrayList.add(newIndex); // add top element to arrayList
+                        b++; // increment index
                     } else if (newIndex <= b) {
                         arrayList.clear();
-                        secondLoop = true;
-                    } else if ((sum() + input[b]) < finalSum) {
-                        arrayList.add(newIndex - b);
-                        b++;
+                        secondLoop = true; // Exiting secondLoop
+                    } else if ((sum() + input[b]) < finalSum) { // If the new sum is less than finalSum add the index to the arrayList
+                        arrayList.add(newIndex - b); // Adding new index to arrayList
+                        b++; // Increment index
                     }
                 }
             }
