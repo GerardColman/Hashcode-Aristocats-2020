@@ -27,13 +27,13 @@ public class Heuristic {
 
     // This loops through the array till the sum of the elements in the ArrayList is equal to
     public void CheckSum(int[] input, int finalSum){
-        int newIndex =  endIndex;
+        int newIndex =  input.length;
         int max = 0;
 
         for(int i = newIndex - 1; i >= 0; i--){
             Integer size  = i;
             Integer sum = 0;
-            ArrayList<Integer> currentList = new ArrayList<>();
+            ArrayList<Integer> currentList = new ArrayList<Integer>();
 
             for(int j = size; j >= 0; j--){
                 Integer currentValue = input[j];
