@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.zip.Checksum;
 
 public class Heuristic {
 
@@ -19,6 +20,8 @@ public class Heuristic {
 
         System.out.println("End index: " + h.endIndex);
 
+        h.CheckSum(array, 3);
+
     }
 
     public int sum(){
@@ -28,7 +31,7 @@ public class Heuristic {
     }
 
     // This loops through the array till the sum of the elements in the ArrayList is equal to
-    public void CheckSum(int[] input, int finalSum){
+    private void CheckSum(int[] input, int finalSum){
         boolean firstLoop = false;
         boolean secondLoop = false;
         int a = 0;
@@ -44,15 +47,15 @@ public class Heuristic {
                     secondLoop = true;
                     break;
                 } else {
-                    if(arrayList.isEmpty()){
+                    if (arrayList.isEmpty()) {
                         arrayList.add(newIndex);
                         b++;
-                    } else if((sum() + input[b]) < finalSum){
-                        arrayList.add(newIndex - b);
-                        b++;
-                    } else if(newIndex == b){
+                    } else if (newIndex <= b) {
                         arrayList.clear();
                         secondLoop = true;
+                    } else if ((sum() + input[b]) < finalSum) {
+                        arrayList.add(newIndex - b);
+                        b++;
                     }
                 }
             }
