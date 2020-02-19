@@ -24,45 +24,41 @@ public class Heuristic {
 
     }
 
-    public int sum(){
-        int sum1 = 0;
-        for(int i = 0; i < arrayList.size(); i++){
-            sum1 += arrayList.get(i);
-        }
-        return sum1;
-    }
 
     // This loops through the array till the sum of the elements in the ArrayList is equal to
     public void CheckSum(int[] input, int finalSum){
-        boolean firstLoop = false;
-        boolean secondLoop = false;
-        int a = 0;
-        int b = 0;
-        int newIndex;
-        while(!firstLoop){
-            newIndex = endIndex - a; // Setting up my new endIndex
-            secondLoop = false; // Resetting secondLoop flag
-            b = 0;
-            while(!secondLoop){
-                if(sum() == finalSum){
-                    firstLoop = true;
+        int newIndex =  endIndex;
+        int max = 0;
+
+        for(int i = newIndex - 1; i >= 0; i--){
+            Integer size  = i;
+            Integer sum = 0;
+            ArrayList<Integer> currentList = new ArrayList<>();
+
+            for(int j = size; j >= 0; j--){
+                Integer currentValue = input[j];
+                Integer tempSum = sum + currentValue;
+
+                if(tempSum == finalSum){
+                    sum = tempSum;
+                    currentList.add(i);
                     break;
-                } else {
-                    if (arrayList.isEmpty()) {
-                        arrayList.add(newIndex); // add top element to arrayList
-                        b++; // increment index
-                    } else if (newIndex <= b) {
-                        arrayList.clear();
-                        secondLoop = true; // Exiting secondLoop
-                    } else if ((sum() + input[b]) < finalSum) { // If the new sum is less than finalSum add the index to the arrayList
-                        arrayList.add(newIndex - b); // Adding new index to arrayList
-                        b++; // Increment index
-                    }
+                } else if(tempSum > finalSum){
+                    continue; // Try next element
+                } else if(tempSum < finalSum){
+                    sum = tempSum;
+                    currentList.add(i);
+                    continue; // Try next element
                 }
             }
-            a++;
-        }
 
+            if(max < sum){
+                max = sum;
+                arrayList = currentList;
+
+            }
+
+        }
     }
 
     /*
