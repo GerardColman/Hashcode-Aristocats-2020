@@ -4,7 +4,7 @@ import java.util.zip.Checksum;
 
 public class Heuristic {
 
-    ArrayList<Integer> arrayList; // ArrayList of indexes to be returned
+    ArrayList<Integer> arrayList = new ArrayList<>(); // ArrayList of indexes to be returned
     public int endIndex;
 
     public static void main(String[] args) {
@@ -33,7 +33,7 @@ public class Heuristic {
     }
 
     // This loops through the array till the sum of the elements in the ArrayList is equal to
-    private void CheckSum(int[] input, int finalSum){
+    public void CheckSum(int[] input, int finalSum){
         boolean firstLoop = false;
         boolean secondLoop = false;
         int a = 0;
@@ -68,7 +68,7 @@ public class Heuristic {
     /*
         Binary search
      */
-    private int findEndIndex(int[] array, int target) {
+    public int findEndIndex(int[] array, int target) {
         this.endIndex = Arrays.binarySearch(array, target);
 
         if (endIndex > -1) {
