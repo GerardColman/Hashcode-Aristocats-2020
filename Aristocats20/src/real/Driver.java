@@ -1,6 +1,8 @@
 package real;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public class Driver {
 
@@ -9,13 +11,13 @@ public class Driver {
 
     int currentSignUpDaysRemaining = 0;
 
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args) throws IOException, FileNotFoundException, UnsupportedEncodingException
     {
         Driver d = new Driver();
 
         String[] filePaths = {"src/real/a_example.txt", "src/real/b_read_on.txt", "src/real/c_incunabula.txt", "src/real/d_tough_choices.txt", "src/real/e_so_many_books.txt"};
 
-        for(int i = 0; i < 6; i++)
+        for(int i = 0; i < 1; i++)
         {
             // File IO
             FileIO io = new FileIO();
@@ -24,7 +26,10 @@ public class Driver {
             // Algorithm
             int days = FileIO.daysForScanning;
             LibrarySelection librarySelection = new LibrarySelection(io);
+            BookSelection bookSelect = new BookSelection();
             BooksScanned scanningFacility = new BooksScanned(days);
+
+            librarySelection.libSort();
 
             for(int day = 0; day < days; day++)
             {
@@ -34,10 +39,9 @@ public class Driver {
                 }
 
                 // Run algorithm
-                librarySelection.libSort();
 
                 // Sign up a library
-                if(d.signUpStatus == SignUp.READY)
+                if(d.signUpStatus == SignUp.READY && librarySelection.libSignUpOrder.size() > 0)
                 {
                     Library currentLib = librarySelection.libSignUpOrder.get(0); // current lib to sign up
                     d.currentSignUpDaysRemaining = currentLib.signUpTime; // set the current sign up days
@@ -53,7 +57,16 @@ public class Driver {
 
                 for(int lib2Scan = 0; lib2Scan < scanningFacility.libraries.size(); lib2Scan++)
                 {
+                    Library lib = scanningFacility.libraries.get(lib2Scan);
+                    bookSelect.l = lib;
+                    bookSelect.sortBooks(); // Sort books
 
+                    while(lib.books.size() > 0) // If the library has books to be scanned
+                    {
+                        Book toScan = bookSelect.getBestBook();
+
+                        scanningFacility.scanBook(scanningFacility.libraries.get(lib2Scan), toScan);
+                    }
                 }
 
                 // End of loop, one day passed
@@ -65,8 +78,7 @@ public class Driver {
 
 
             // Output results
-
-
+            FileIO.printOutput("a_example", scanningFacility);
         }
 
 

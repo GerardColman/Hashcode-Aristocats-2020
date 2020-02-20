@@ -1,9 +1,5 @@
 package real;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 public class FileIO {
@@ -24,10 +20,10 @@ public class FileIO {
 
 	}
 	
-	public void getInput(String fileName) throws IOException{
-
+	public void getInput(String fileName) throws IOException
+    {
 		int sum = 0;
-        BufferedReader in = new BufferedReader(new FileReader("input\\" + fileName + ".in"));
+        BufferedReader in = new BufferedReader(new FileReader(fileName));
 
         String firstline, secondline, libraryInfo, bookInfo;
         firstline = in.readLine();
@@ -39,9 +35,12 @@ public class FileIO {
 
         first = firstline.split(" ");
         second = secondline.split(" ");
+
+        bookScores = new int[Integer.parseInt(first[0])];
         
-        for(int count = 0;count < second.length;count++) {
-        	bookScores[count] = Integer.parseInt(second[0]);
+        for(int count = 0;count < second.length;count++)
+        {
+        	bookScores[count] = Integer.parseInt(second[count]);
         }
         
         booksForScanning = Integer.parseInt(first[0]);
@@ -71,11 +70,31 @@ public class FileIO {
         in.close();
 
     }
-	public void printOutput(String fileName) throws FileNotFoundException {
-		
+	
+	public static void printOutput(String fileName, BooksScanned B) throws IOException {
+
+	    File f = new File("output_" + fileName + ".txt");
+
+	    if(!f.exists())
+        {
+            f.createNewFile();
+        }
+
+        System.out.println(f.getAbsolutePath());
+
 		//System.out.println("\n-------- output " + fileName);
-		PrintWriter out = new PrintWriter("output\\" + fileName + ".in");
-			out.println();
+		PrintWriter out = new PrintWriter(f.getName(), "UTF-8");
+		
+			out.println(B.getNumLibsSignedUp());
+
+			for(int count = 0;count < B.getNumLibsSignedUp();count++)
+			{
+				out.println(B.libraries.get(count).l_id + " " + B.libraries.get(count).booksScanned + " ");
+				out.println(B.libraries.get(count).scanRecords);
+			}
+
+            System.out.println("Success!");
+
 			out.close();
 	}
 	

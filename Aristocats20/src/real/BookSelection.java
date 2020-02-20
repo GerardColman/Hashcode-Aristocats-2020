@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public class BookSelection
 {
-    HashMap<Integer, Integer> booksScanned = null;
     Library l =  null;
     int top = 0;
 
@@ -24,7 +23,9 @@ public class BookSelection
 
     public Book getBestBook()
     {
-        Book best = l.books.get(top++);
+        Book best = l.books.get(0);
+
+        l.books.remove(0);
 
         return best;
     }
