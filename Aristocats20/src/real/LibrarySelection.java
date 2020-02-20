@@ -16,7 +16,7 @@ public class LibrarySelection  {
                     i++;
                 }
                 if(IO.libraries.get(i).signUpTime == days){
-                    lib1stSort.add()
+                    lib1stSort.add(IO.libraries.get(i));
                 }
             }
         }
