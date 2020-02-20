@@ -1,6 +1,7 @@
 package real;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Comparator;
 // This is the library selection algorithm
 
 public class LibrarySelection  {
@@ -16,19 +17,25 @@ public class LibrarySelection  {
     public void libSort() {
         int signUpTime = 1;
 
-        for(int days=1;days<FileIO.daysForScanning;days++) {
-            for(int i = 0;i<io.libraries.size();i++){
-                if(io.libraries.get(i).signUpTime > io.daysForScanning){
-                    i++;
-                }
-                if(io.libraries.get(i).signUpTime == days){
-                    lib1stSort.add(io.libraries.get(i));
-                }
-            }
-        }
-        for(int days = 1; days < io.daysForScanning;days++){
+        lib1stSort = io.libraries;
 
+        System.out.println(io.libraries.toString());
+
+        lib1stSort.sort(new Comparator<Library>()
+        {
+            @Override
+            public int compare(Library o1, Library o2) {
+                return Integer.compare(o1.signUpTime, o2.signUpTime);
+            }
+        });
+
+        for(int days = 1; days < FileIO.daysForScanning; days++)
+        {
+            break;
         }
+
         libSignUpOrder = lib1stSort;
+
+        System.out.println(lib1stSort.toString());
     }
 }

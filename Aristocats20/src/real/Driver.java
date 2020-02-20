@@ -29,6 +29,8 @@ public class Driver {
             BookSelection bookSelect = new BookSelection();
             BooksScanned scanningFacility = new BooksScanned(days);
 
+            librarySelection.libSort();
+
             for(int day = 0; day < days; day++)
             {
                 if(d.currentSignUpDaysRemaining == 0) // Check sign up status
@@ -37,10 +39,9 @@ public class Driver {
                 }
 
                 // Run algorithm
-                librarySelection.libSort();
 
                 // Sign up a library
-                if(d.signUpStatus == SignUp.READY)
+                if(d.signUpStatus == SignUp.READY && librarySelection.libSignUpOrder.size() > 0)
                 {
                     Library currentLib = librarySelection.libSignUpOrder.get(0); // current lib to sign up
                     d.currentSignUpDaysRemaining = currentLib.signUpTime; // set the current sign up days
