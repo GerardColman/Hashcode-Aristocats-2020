@@ -25,7 +25,6 @@ public class FileIO {
 	}
 	
 	public void getInput(String fileName) throws IOException{
-
 		int sum = 0;
         BufferedReader in = new BufferedReader(new FileReader("input\\" + fileName + ".in"));
 
@@ -71,11 +70,17 @@ public class FileIO {
         in.close();
 
     }
-	public void printOutput(String fileName) throws FileNotFoundException {
+	
+	public void printOutput(String fileName, BooksScanned B) throws FileNotFoundException {
 		
 		//System.out.println("\n-------- output " + fileName);
-		PrintWriter out = new PrintWriter("output\\" + fileName + ".in");
-			out.println();
+		PrintWriter out = new PrintWriter("output\\" + fileName + ".out", "UTF-8");
+		
+			out.println(B.getNumLibsSignedUp());
+			for(int count = 0;count < B.getNumLibsSignedUp();count++) {
+				out.println(" " + libraries.get(count).l_id + " " + libraries.get(count).booksScanned);
+				out.println(libraries.get(count).scanRecords);
+			}
 			out.close();
 	}
 	
