@@ -25,6 +25,7 @@ public class FileIO {
 	}
 	
 	public void getInput(String fileName) throws IOException{
+
 		int sum = 0;
         BufferedReader in = new BufferedReader(new FileReader("input\\" + fileName + ".in"));
 
