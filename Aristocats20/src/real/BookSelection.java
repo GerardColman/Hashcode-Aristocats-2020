@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public class BookSelection
 {
-    HashMap<Integer, Integer> booksScanned = null;
     Library l =  null;
     int top = 0;
 

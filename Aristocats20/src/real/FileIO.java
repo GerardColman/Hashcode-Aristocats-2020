@@ -1,9 +1,5 @@
 package real;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 public class FileIO {
@@ -26,7 +22,7 @@ public class FileIO {
 	
 	public void getInput(String fileName) throws IOException{
 		int sum = 0;
-        BufferedReader in = new BufferedReader(new FileReader("input\\" + fileName + ".in"));
+        BufferedReader in = new BufferedReader(new FileReader(fileName));
 
         String firstline, secondline, libraryInfo, bookInfo;
         firstline = in.readLine();
@@ -71,7 +67,7 @@ public class FileIO {
 
     }
 	
-	public void printOutput(String fileName, BooksScanned B) throws FileNotFoundException {
+	public void printOutput(String fileName, BooksScanned B) throws FileNotFoundException, UnsupportedEncodingException {
 		
 		//System.out.println("\n-------- output " + fileName);
 		PrintWriter out = new PrintWriter("output\\" + fileName + ".out", "UTF-8");

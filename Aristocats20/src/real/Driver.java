@@ -1,6 +1,8 @@
 package real;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public class Driver {
 
@@ -9,7 +11,7 @@ public class Driver {
 
     int currentSignUpDaysRemaining = 0;
 
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args) throws IOException, FileNotFoundException, UnsupportedEncodingException
     {
         Driver d = new Driver();
 
@@ -24,6 +26,7 @@ public class Driver {
             // Algorithm
             int days = FileIO.daysForScanning;
             LibrarySelection librarySelection = new LibrarySelection(io);
+            BookSelection bookSelect = new BookSelection();
             BooksScanned scanningFacility = new BooksScanned(days);
 
             for(int day = 0; day < days; day++)
@@ -53,7 +56,16 @@ public class Driver {
 
                 for(int lib2Scan = 0; lib2Scan < scanningFacility.libraries.size(); lib2Scan++)
                 {
+                    Library lib = scanningFacility.libraries.get(i);
+                    bookSelect.l = lib;
+                    bookSelect.sortBooks(); // Sort books
 
+                    while(lib.books.size() > 0) // If the library has books to be scanned
+                    {
+                        Book toScan = bookSelect.getBestBook();
+
+                        scanningFacility.scanBook(scanningFacility.libraries.get(i), toScan);
+                    }
                 }
 
                 // End of loop, one day passed
