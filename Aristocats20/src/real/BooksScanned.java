@@ -20,6 +20,11 @@ public class BooksScanned
         this.totalBooksScanned = 0;
     }
 
+    public int getNumLibsSignedUp()
+    {
+        return this.libraries.size();
+    }
+
     // Make sure we are scanning from the library in the arraylist pls
 
     public void scanBook(Library l, Book b) {
