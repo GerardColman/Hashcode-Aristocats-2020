@@ -86,6 +86,7 @@ public class FileIO {
 		PrintWriter out = new PrintWriter(f.getName(), "UTF-8");
 		
 			out.println(B.getNumLibsSignedUp());
+
 			for(int count = 0;count < B.getNumLibsSignedUp();count++)
 			{
 				out.println(B.libraries.get(count).l_id + " " + B.libraries.get(count).booksScanned + " ");
