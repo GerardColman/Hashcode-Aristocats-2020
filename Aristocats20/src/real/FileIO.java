@@ -73,12 +73,14 @@ public class FileIO {
 	
 	public static void printOutput(String fileName, BooksScanned B) throws IOException {
 
-	    File f = new File("output\\" + fileName + ".txt");
+	    File f = new File("output_" + fileName + ".txt");
 
 	    if(!f.exists())
         {
             f.createNewFile();
         }
+
+        System.out.println(f.getAbsolutePath());
 
 		//System.out.println("\n-------- output " + fileName);
 		PrintWriter out = new PrintWriter(f.getName(), "UTF-8");
@@ -86,7 +88,7 @@ public class FileIO {
 			out.println(B.getNumLibsSignedUp());
 			for(int count = 0;count < B.getNumLibsSignedUp();count++)
 			{
-				out.println(" " + B.libraries.get(count).l_id + " " + B.libraries.get(count).booksScanned);
+				out.println(B.libraries.get(count).l_id + " " + B.libraries.get(count).booksScanned + " ");
 				out.println(B.libraries.get(count).scanRecords);
 			}
 
