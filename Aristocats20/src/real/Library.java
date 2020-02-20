@@ -50,7 +50,7 @@ public class Library
         lib += signUpTime + ", ";
         lib += booksPerDay + ", ";
         lib += totalValue + ", {";
-        lib += books.toString() + "}, ";
+        lib += books.toString() + "}";
 
         return lib;
     }
