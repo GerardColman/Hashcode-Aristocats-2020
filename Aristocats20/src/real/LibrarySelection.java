@@ -31,15 +31,28 @@ public class LibrarySelection  {
         }
         /*Second sorting pass*/
         for(int i = 0;i<io.daysForScanning;i++){
-            for(pointerSelect = 0;pointerSelect<lib1stSort.size();pointerSelect++){
-                while(lib1stSort.get(pointerSelect).signUpTime == i) {
-                    if (lib1stSort.get(pointerSelect).signUpTime < lib1stSort.get(pointerSort).signUpTime) {
+            pointerSelect = getBlockCount(i-1)+1;
+            if(i == 0){
+                pointerSelect = 0;
+            }
+            while(lib1stSort.get(pointerSelect).signUpTime == i) {
+                for (pointerSort = getBlockCount(i-1)+1; pointerSort < getBlockCount(i); pointerSort++) {
+                    if(i == 0){
+                        pointerSort = 0;
+                    }
+                    if (lib1stSort.get(pointerSort).signUpTime > lib1stSort.get(pointerSelect).signUpTime) {
                         pointerSelect = pointerSort;
+                    }else{
+                        libSignUpOrder.add(lib1stSort.get(pointerSelect));
+                        lib1stSort.remove(pointerSelect);
+                        pointerSelect = getBlockCount(i-1)+1;
+                        if(i == 0){
+                            pointerSelect = 0;
+                        }
                     }
                 }
             }
         }
-        libSignUpOrder = lib1stSort;
     }
     private int getBlockCount(int blockIndex){ //returns the amount in an individual block
         if(blockIndex == 0){
