@@ -20,7 +20,8 @@ public class FileIO {
 
 	}
 	
-	public void getInput(String fileName) throws IOException{
+	public void getInput(String fileName) throws IOException
+    {
 		int sum = 0;
         BufferedReader in = new BufferedReader(new FileReader(fileName));
 
@@ -34,8 +35,11 @@ public class FileIO {
 
         first = firstline.split(" ");
         second = secondline.split(" ");
+
+        bookScores = new int[Integer.parseInt(first[0])];
         
-        for(int count = 0;count < second.length;count++) {
+        for(int count = 0;count < second.length;count++)
+        {
         	bookScores[count] = Integer.parseInt(second[0]);
         }
         
