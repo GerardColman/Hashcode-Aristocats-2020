@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 public class Output
 {
-    ArrayList<Library> libraries;
+    BooksScanned scanned = null;
 
-    
+    public Output(BooksScanned scanned)
+    {
+        this.scanned = scanned;
+    }
 }
