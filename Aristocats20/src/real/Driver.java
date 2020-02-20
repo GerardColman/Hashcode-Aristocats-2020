@@ -17,7 +17,7 @@ public class Driver {
 
         String[] filePaths = {"src/real/a_example.txt", "src/real/b_read_on.txt", "src/real/c_incunabula.txt", "src/real/d_tough_choices.txt", "src/real/e_so_many_books.txt"};
 
-        for(int i = 0; i < 1; i++)
+        for(int i = 0; i < filePaths.length; i++)
         {
             // File IO
             FileIO io = new FileIO();

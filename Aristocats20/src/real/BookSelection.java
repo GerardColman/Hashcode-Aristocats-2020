@@ -17,8 +17,6 @@ public class BookSelection
                 return Integer.compare(o1.value, o2.value);
             }
         });
-
-
     }
 
     public Book getBestBook()
