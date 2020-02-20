@@ -26,7 +26,9 @@ public class LibrarySelection  {
                 }
             }
         }
+        for(int days = 1; days < io.daysForScanning;days++){
 
+        }
         libSignUpOrder = lib1stSort;
     }
 }
