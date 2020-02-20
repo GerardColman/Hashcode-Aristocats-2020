@@ -15,16 +15,16 @@ public class LibrarySelection  {
 
     public void libSort() {
         int signUpTime = 1;
-
+        /*First sorting pass*/
         for(int days=1;days<FileIO.daysForScanning;days++) {
             for(int i = 0;i<io.libraries.size();i++){
-                if(io.libraries.get(i).signUpTime > io.daysForScanning){
-                    i++;
-                }
                 if(io.libraries.get(i).signUpTime == days){
                     lib1stSort.add(io.libraries.get(i));
                 }
             }
         }
+        /*Second sorting pass*/
+        for(int days = 1;days<io.daysForScanning;days++)
+        libSignUpOrder = lib1stSort;
     }
 }
