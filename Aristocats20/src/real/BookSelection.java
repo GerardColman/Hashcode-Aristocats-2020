@@ -23,7 +23,9 @@ public class BookSelection
 
     public Book getBestBook()
     {
-        Book best = l.books.get(top++);
+        Book best = l.books.get(0);
+
+        l.books.remove(0);
 
         return best;
     }

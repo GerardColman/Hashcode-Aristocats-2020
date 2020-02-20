@@ -40,7 +40,7 @@ public class FileIO {
         
         for(int count = 0;count < second.length;count++)
         {
-        	bookScores[count] = Integer.parseInt(second[0]);
+        	bookScores[count] = Integer.parseInt(second[count]);
         }
         
         booksForScanning = Integer.parseInt(first[0]);
