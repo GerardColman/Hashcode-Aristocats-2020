@@ -9,4 +9,9 @@ public class Book
         this.b_id = id;
         this.value = value;
     }
+
+    public String toString()
+    {
+        return "[" + b_id + " : " + value + "]";
+    }
 }

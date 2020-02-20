@@ -42,5 +42,17 @@ public class Library
         }
     }
 
+    public String toString()
+    {
+        String lib = "[";
+
+        lib += l_id + ", ";
+        lib += signUpTime + ", ";
+        lib += booksPerDay + ", ";
+        lib += totalValue + ", {";
+        lib += books.toString() + "}, ";
+
+        return lib;
+    }
 
 }
