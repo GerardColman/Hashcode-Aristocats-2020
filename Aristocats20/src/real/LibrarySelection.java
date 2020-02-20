@@ -26,5 +26,7 @@ public class LibrarySelection  {
                 }
             }
         }
+
+        libSignUpOrder = lib1stSort;
     }
 }
