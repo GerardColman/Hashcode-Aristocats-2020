@@ -12,14 +12,17 @@ public class FileIO {
 	
 	public static void main(String[] args) throws IOException {
 		FileIO p = new FileIO();
-		String[] fileNames = {"a_example"};
+		String[] fileNames = {"src/real/a_example.txt"};
 		
 		p.getInput(fileNames[0]);
+
+        System.out.println(p.libraries.toString());
+
 	}
 	
 	public void getInput(String fileName) throws IOException{
 		int sum = 0;
-        BufferedReader in = new BufferedReader(new FileReader("input\\" + fileName + ".in"));
+        BufferedReader in = new BufferedReader(new FileReader(fileName));
 
         String firstline, secondline, libraryInfo, bookInfo;
         firstline = in.readLine();

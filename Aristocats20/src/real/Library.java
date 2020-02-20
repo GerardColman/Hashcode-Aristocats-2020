@@ -6,6 +6,10 @@ public class Library
 {
     int l_id;
     ArrayList<Book> books = null;
+
+    String scanRecords = new String();
+    int booksScanned = 0;
+
     int signUpTime = -1;
     int booksPerDay = -1;
     int totalValue = -1;
@@ -37,4 +41,6 @@ public class Library
             throw new IllegalArgumentException("Total value can't be negative.");
         }
     }
+
+
 }

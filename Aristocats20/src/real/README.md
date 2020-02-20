@@ -4,7 +4,7 @@
  - [X] Create BooksScanned
   
  ## Library Class
- - [X] Store an array of Books
+ - [X] Store an ArrayList of Books
  - [X] The ID of the Library
  - [X] The number of Books to be scanned each day once the Library is signed up
  - [X] Total value of the books in the library

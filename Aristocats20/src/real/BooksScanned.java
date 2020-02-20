@@ -20,6 +20,8 @@ public class BooksScanned
         this.totalBooksScanned = 0;
     }
 
+    // Make sure we are scanning from the library in the arraylist pls
+
     public void scanBook(Library l, Book b) {
         // Increment score
         this.totalScore += b.value;
@@ -30,11 +32,18 @@ public class BooksScanned
         // Add to booksScanned
         this.booksScanned.put(b.b_id, l.l_id);
 
-        //
+        // Add to scan records
+        l.scanRecords += (b.b_id + " ");
+
+        // Remove from library
+        l.books.remove(b);
     }
 
     // Sign up library
     public int signUpLibrary(Library l) {
+
+        removeBooksScanned(l);
+
         libraries.add(l);
 
         return l.signUpTime;
@@ -46,8 +55,10 @@ public class BooksScanned
         {
             if(this.booksScanned.containsKey(l.books.get(i).b_id)) // If scanned
             {
-                l.books.remove(l.books.get(i)); // Remove
+                l.totalValue = l.totalValue - l.books.get(i).value; // Reduce total value
+                l.books.remove(l.books.get(i)); // Remove from library
             }
         }
     }
+
 }
