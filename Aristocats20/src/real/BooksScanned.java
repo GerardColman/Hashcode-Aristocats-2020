@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class BooksScanned
 {
     ArrayList<Library> libraries = null;
-    HashMap<Integer, Integer> booksScanned = null;
+    HashMap<Integer, Integer> booksScanned = null; //
     int totalBooksScanned = -1;
     int totalScore = -1;
     int daysLeft = -1;

@@ -12,15 +12,16 @@ public class Driver {
         {
             // File IO
             FileIO io = new FileIO();
-
             io.getInput(filePaths[i]);
 
             // Algorithm
             int days = FileIO.daysForScanning;
+            LibrarySelection librarySelection = new LibrarySelection(io);
 
             for(int day = 0; day < days; day++)
             {
-
+                // Run algorithm
+                librarySelection.libSort();
             }
 
 
