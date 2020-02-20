@@ -9,6 +9,10 @@ import java.util.ArrayList;
 public class FileIO {
 	
 	ArrayList<Library> libraries = new ArrayList<Library>();
+	public static int booksForScanning;
+	public static int daysForScanning;
+	public static int librariesForScanning;
+	public static int[] bookScores;
 	
 	public static void main(String[] args) throws IOException {
 		FileIO p = new FileIO();
@@ -22,7 +26,7 @@ public class FileIO {
 	
 	public void getInput(String fileName) throws IOException{
 		int sum = 0;
-        BufferedReader in = new BufferedReader(new FileReader(fileName));
+        BufferedReader in = new BufferedReader(new FileReader("input\\" + fileName + ".in"));
 
         String firstline, secondline, libraryInfo, bookInfo;
         firstline = in.readLine();
@@ -34,7 +38,15 @@ public class FileIO {
 
         first = firstline.split(" ");
         second = secondline.split(" ");
-
+        
+        for(int count = 0;count < second.length;count++) {
+        	bookScores[count] = Integer.parseInt(second[0]);
+        }
+        
+        booksForScanning = Integer.parseInt(first[0]);
+        librariesForScanning = Integer.parseInt(first[1]);
+        daysForScanning = Integer.parseInt(first[2]);
+        
         for(int count = 0;count < Integer.parseInt(first[1]);count++){
             libraryInfo = in.readLine();
             bookInfo = in.readLine();
@@ -67,4 +79,3 @@ public class FileIO {
 	}
 	
 }
-
