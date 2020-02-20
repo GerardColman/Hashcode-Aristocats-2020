@@ -1,3 +1,5 @@
+package practice;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.zip.Checksum;
@@ -41,24 +43,23 @@ public class Heuristic {
 
                 if(tempSum == finalSum){
                     sum = tempSum;
-                    currentList.add(i);
+                    currentList.add(j);
                     break;
                 } else if(tempSum > finalSum){
                     continue; // Try next element
                 } else if(tempSum < finalSum){
                     sum = tempSum;
-                    currentList.add(i);
+                    currentList.add(j);
                     continue; // Try next element
                 }
             }
 
-            if(max < sum){
+            if(sum > max){
                 max = sum;
                 arrayList = currentList;
-
             }
-
         }
+        System.out.println(arrayList.toString());
     }
 
     /*
