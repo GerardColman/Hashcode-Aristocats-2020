@@ -26,8 +26,9 @@ public class LibrarySelection  {
                 }
             }
         }
-        /*Second sorting pass*/
-        for(int days = 1;days<io.daysForScanning;days++)
+        for(int days = 1; days < io.daysForScanning;days++){
+
+        }
         libSignUpOrder = lib1stSort;
     }
 }
