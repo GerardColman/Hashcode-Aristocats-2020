@@ -77,7 +77,7 @@ public class Driver {
 
 
             // Output results
-
+            FileIO.printOutput("a_example", scanningFacility);
 
         }
 

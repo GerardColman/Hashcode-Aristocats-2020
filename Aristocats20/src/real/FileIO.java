@@ -71,16 +71,27 @@ public class FileIO {
 
     }
 	
-	public void printOutput(String fileName, BooksScanned B) throws FileNotFoundException, UnsupportedEncodingException {
-		
+	public static void printOutput(String fileName, BooksScanned B) throws IOException {
+
+	    File f = new File("output\\" + fileName + ".txt");
+
+	    if(!f.exists())
+        {
+            f.createNewFile();
+        }
+
 		//System.out.println("\n-------- output " + fileName);
-		PrintWriter out = new PrintWriter("output\\" + fileName + ".out", "UTF-8");
+		PrintWriter out = new PrintWriter(f.getName(), "UTF-8");
 		
 			out.println(B.getNumLibsSignedUp());
-			for(int count = 0;count < B.getNumLibsSignedUp();count++) {
-				out.println(" " + libraries.get(count).l_id + " " + libraries.get(count).booksScanned);
-				out.println(libraries.get(count).scanRecords);
+			for(int count = 0;count < B.getNumLibsSignedUp();count++)
+			{
+				out.println(" " + B.libraries.get(count).l_id + " " + B.libraries.get(count).booksScanned);
+				out.println(B.libraries.get(count).scanRecords);
 			}
+
+            System.out.println("Success!");
+
 			out.close();
 	}
 	
