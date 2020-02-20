@@ -1,22 +1,23 @@
 ## ToDo List:
- - [ ] Create Book Class
- - [ ] Create Library Class
- - [ ] Create BooksScanned
+ - [X] Create Book Class
+ - [X] Create Library Class
+ - [X] Create BooksScanned
   
  ## Library Class
- - [ ] Store an array of Books
- - [ ] The ID of the Library
- - [ ] The number of Books to be scanned each day once the Library is signed up
+ - [X] Store an array of Books
+ - [X] The ID of the Library
+ - [X] The number of Books to be scanned each day once the Library is signed up
+ - [X] Total value of the books in the library
  
  ## BooksScanned Class
- - [ ] HashMap of BookID and Bool isScanned
- - [ ] Takes new BookID from Books Class
- - [ ] int daysLeft
- - [ ] ArrayList<Library> libraryScanned
- - [ ] signUpLibrary() method 
- - [ ] BooksScanned 
+ - [X] HashMap of BookID and Bool isScanned
+ - [X] Takes new BookID from Books Class
+ - [X] int daysLeft
+ - [X] ArrayList<Library> libraryScanned
+ - [X] signUpLibrary() method 
+ - [X] BooksScanned 
  
  ## Books Class
- - [ ] Book Object
-    - [ ] Stores the BookID and the value of the book
+ - [X] Book Object
+    - [X] Stores the BookID and the value of the book
  

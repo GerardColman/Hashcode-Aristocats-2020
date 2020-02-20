@@ -12,7 +12,12 @@ public class Driver {
             FileIO io = new FileIO();
 
             // Algorithm
+            int days = 0;
 
+            for(int day = 0; day < days; day++)
+            {
+                // Run algorithm
+            }
 
 
             // Output results
