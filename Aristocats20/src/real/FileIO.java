@@ -80,8 +80,6 @@ public class FileIO {
             f.createNewFile();
         }
 
-        System.out.println(f.getAbsolutePath());
-
 		//System.out.println("\n-------- output " + fileName);
 		PrintWriter out = new PrintWriter(f.getName(), "UTF-8");
 		

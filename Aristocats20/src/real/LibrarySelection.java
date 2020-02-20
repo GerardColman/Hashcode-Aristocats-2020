@@ -19,8 +19,6 @@ public class LibrarySelection  {
 
         lib1stSort = io.libraries;
 
-        System.out.println(io.libraries.toString());
-
         lib1stSort.sort(new Comparator<Library>()
         {
             @Override
@@ -35,7 +33,5 @@ public class LibrarySelection  {
         }
 
         libSignUpOrder = lib1stSort;
-
-        System.out.println(lib1stSort.toString());
     }
 }
