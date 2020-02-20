@@ -39,6 +39,7 @@ public class BooksScanned
 
         // Add to scan records
         l.scanRecords += (b.b_id + " ");
+        l.booksScanned++;
 
         // Remove from library
         l.books.remove(b);

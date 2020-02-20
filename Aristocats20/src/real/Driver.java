@@ -20,7 +20,7 @@ public class Driver {
 
             for(int day = 0; day < days; day++)
             {
-                // Run algorithm
+
             }
 
 
