@@ -79,6 +79,8 @@ public class Driver {
 
             // Output results
 
+            scanningFacility.removeEmptyLibraries();
+
             String fileName =  filePaths[i].substring(9);
             fileName = fileName.substring(0, fileName.length()-4);
 

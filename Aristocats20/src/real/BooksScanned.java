@@ -67,4 +67,15 @@ public class BooksScanned
         }
     }
 
+    public void removeEmptyLibraries()
+    {
+        for(int i = 0; i < libraries.size(); i++)
+        {
+            if(libraries.get(i).booksScanned == 0)
+            {
+                libraries.remove(i);
+            }
+        }
+    }
+
 }

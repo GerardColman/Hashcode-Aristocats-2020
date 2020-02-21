@@ -56,6 +56,7 @@ public class FileIO {
             book = bookInfo.split(" ");
             
             ArrayList<Book> bookArr = new ArrayList<Book>();
+
             for(int i = 0;i<Integer.parseInt(library[0]);i++) {
             	
             	int temp = Integer.parseInt(book[i]);
@@ -85,11 +86,21 @@ public class FileIO {
 		
 			out.println(B.getNumLibsSignedUp());
 
-			for(int count = 0;count < B.getNumLibsSignedUp();count++)
+			for(int count = 0; count < B.getNumLibsSignedUp() - 1;count++)
 			{
-				out.println(B.libraries.get(count).l_id + " " + B.libraries.get(count).booksScanned + " ");
-				out.println(B.libraries.get(count).scanRecords);
+			    if(B.libraries.get(count).booksScanned != 0)
+                {
+                    out.println(B.libraries.get(count).l_id + " " + B.libraries.get(count).booksScanned + " ");
+                    out.println(B.libraries.get(count).scanRecords);
+                }
+			    else
+                {
+                    System.out.println("Error - blank library");
+                }
 			}
+
+            out.println(B.libraries.get(B.getNumLibsSignedUp()-1).l_id + " " + B.libraries.get(B.getNumLibsSignedUp()-1).booksScanned + " ");
+            out.print(B.libraries.get(B.getNumLibsSignedUp()-1).scanRecords);
 
             System.out.println("Success!");
 
