@@ -1,7 +1,6 @@
 package real;
 
-public class Book
-{
+public class Book {
     int b_id = -1;
     int value = -1;
 
@@ -10,8 +9,7 @@ public class Book
         this.value = value;
     }
 
-    public String toString()
-    {
+    public String toString() {
         return "[" + b_id + " : " + value + "]";
     }
 }

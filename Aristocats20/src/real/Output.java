@@ -1,12 +1,9 @@
 package real;
 
-import java.util.ArrayList;
-
-public class Output
-{
+public class Output {
     BooksScanned scanned = null;
-    public Output(BooksScanned scanned)
-    {
+
+    public Output(BooksScanned scanned) {
         this.scanned = scanned;
     }
 }

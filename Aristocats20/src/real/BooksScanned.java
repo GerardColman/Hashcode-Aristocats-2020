@@ -3,16 +3,14 @@ package real;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class BooksScanned
-{
+public class BooksScanned {
     ArrayList<Library> libraries = null;
     HashMap<Integer, Integer> booksScanned = null; //
     int totalBooksScanned = -1;
-    int totalScore = -1;
-    int daysLeft = -1;
+    int totalScore;
+    int daysLeft;
 
-    public BooksScanned(int daysLeft)
-    {
+    public BooksScanned(int daysLeft) {
         this.daysLeft = daysLeft;
         this.booksScanned = new HashMap<>(); // Initialise
         this.libraries = new ArrayList<>(); // Initialise
@@ -20,12 +18,11 @@ public class BooksScanned
         this.totalBooksScanned = 0;
     }
 
-    public int getNumLibsSignedUp()
-    {
+    public int getNumLibsSignedUp() {
         return this.libraries.size();
     }
 
-    // Make sure we are scanning from the library in the arraylist pls
+    // Make sure we are scanning from the library in the Array list pls
 
     public void scanBook(Library l, Book b) {
         // Increment score
@@ -57,9 +54,9 @@ public class BooksScanned
 
     private void removeBooksScanned(Library l) {
 
-        for(int i = 0; i < l.books.size(); i++) // For all books
+        for (int i = 0; i < l.books.size(); i++) // For all books
         {
-            if(this.booksScanned.containsKey(l.books.get(i).b_id)) // If scanned
+            if (this.booksScanned.containsKey(l.books.get(i).b_id)) // If scanned
             {
                 l.totalValue = l.totalValue - l.books.get(i).value; // Reduce total value
                 l.books.remove(l.books.get(i)); // Remove from library
@@ -67,12 +64,9 @@ public class BooksScanned
         }
     }
 
-    public void removeEmptyLibraries()
-    {
-        for(int i = 0; i < libraries.size(); i++)
-        {
-            if(libraries.get(i).booksScanned == 0)
-            {
+    public void removeEmptyLibraries() {
+        for (int i = 0; i < libraries.size(); i++) {
+            if (libraries.get(i).booksScanned == 0) {
                 libraries.remove(i);
             }
         }
