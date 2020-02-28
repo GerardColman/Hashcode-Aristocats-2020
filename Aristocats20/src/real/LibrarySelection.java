@@ -19,7 +19,7 @@ public class LibrarySelection {
             tempArray.clear();
             for (int i = 0; i < io.libraries.size(); i++) {
                 if (io.libraries.get(i).signUpTime > FileIO.daysForScanning) {
-                    i++;
+                    continue;
                 } else if (io.libraries.get(i).signUpTime == days) {
                     tempArray.add(io.libraries.get(i));
                 }
